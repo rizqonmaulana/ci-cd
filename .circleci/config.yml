@@ -6,6 +6,8 @@ jobs:
       - image: node:18
     steps:
       - checkout
+      - setup_remote_docker:  # This enables Docker inside the CircleCI container
+          version: 20.10.7
       - run: echo "Building the app..."
       - run: docker build -t your-dockerhub-username/my-node-app .
       - run: echo "Build completed!"
