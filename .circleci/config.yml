@@ -8,7 +8,7 @@ jobs:
       - checkout
       - setup_remote_docker
       - run: echo "Building the app..."
-      - run: docker build -t your-dockerhub-username/my-node-app .
+      - run: docker build -t rizqonmaulana/my-node-app .
       - run: echo "Build completed!"
 
   push:
@@ -19,8 +19,8 @@ jobs:
       - setup_remote_docker
       - run: echo "Logging in to Docker Hub..."
       - run: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: docker tag my-node-app your-dockerhub-username/my-node-app
-      - run: docker push your-dockerhub-username/my-node-app
+      - run: docker tag my-node-app rizqonmaulana/my-node-app
+      - run: docker push rizqonmaulana/my-node-app
       - run: echo "Push completed!"
 
   deploy:
